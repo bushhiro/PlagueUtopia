@@ -7,19 +7,21 @@ import 'subordinate_entity.dart';
 class DoctorEntity {
   final int id;                   // уникальный идентификатор врача
   final String asset;                  // путь к ассету
-  PlayerColor color;
   final List<SubordinateEntity> subordinates; // список подчинённых
-  bool isInQuarantine;            // врач сам в карантине (по правилам, можно расширить для других эффектов)
+  PlayerColor color;
   LocationEntity position;
+  final String? name;
+  bool isInQuarantine;            // врач сам в карантине (по правилам, можно расширить для других эффектов)
   List<ResourceType> resources;
 
   DoctorEntity({
     required this.id,
     required this.asset,
-    required this.color,
     required this.subordinates,
-    this.isInQuarantine = true,
+    required this.color,
     required this.position,
+    this.name,
+    this.isInQuarantine = true,
     List<ResourceType>? resources,
   }) : resources = resources ?? [];
 }

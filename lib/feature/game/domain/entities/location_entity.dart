@@ -18,6 +18,5 @@ class LocationViewModel {
   const LocationViewModel({
     required this.xPercent,
     required this.yPercent,
-    required String asset,
   });
 }

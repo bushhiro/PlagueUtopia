@@ -13,10 +13,11 @@ enum SubordinateStatus {
 class SubordinateEntity {
   final int id;                     // уникальный идентификатор подчинённого
   final String asset;                  // путь к ассету
-  PlayerColor color;
   final ResourceType resourceType;  // ресурс, который может генерировать подчинённый
-  SubordinateStatus status;         // текущее состояние
+  final PlayerColor color;
   LocationEntity position;
+  final String? name;
+  SubordinateStatus status;         // текущее состояние
   DoctorEntity? ownerDoctor;       // ссылка на врача-владельца
   DoctorEntity? askingDoctor;       // ссылка на врача-владельца
 
@@ -24,10 +25,11 @@ class SubordinateEntity {
   SubordinateEntity({
     required this.id,
     required this.asset,
-    required this.color,
     required this.resourceType,
-    this.status = SubordinateStatus.inQuarantine,
+    required this.color,
     required this.position,
+    this.name,
+    this.status = SubordinateStatus.inQuarantine,
     this.ownerDoctor,
     this.askingDoctor,
   });

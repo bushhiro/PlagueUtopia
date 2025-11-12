@@ -20,7 +20,6 @@ class StrainModel extends StrainEntity {
       type: entity.type,
       position: entity.position,
       locationView: LocationViewModel(
-        asset: entity.asset,
         xPercent: 0.0, // задайте реальную координату для отображения
         yPercent: 0.0,
       ),

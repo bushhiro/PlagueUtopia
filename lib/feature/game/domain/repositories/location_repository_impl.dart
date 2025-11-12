@@ -10,6 +10,5 @@ LocationViewModel getLocationView(LocationViewModel location) {
   return LocationViewModel(
     xPercent: location.xPercent,
     yPercent: location.yPercent,
-    asset: '',
   );
 }

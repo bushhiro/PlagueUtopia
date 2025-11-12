@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mor_utopia/feature/game/data/datasources/static_game_data.dart';
 import '../blocs/game_bloc/game_bloc.dart';
 import '../blocs/game_bloc/game_event.dart';
 import '../blocs/game_bloc/game_state.dart';
@@ -30,6 +31,7 @@ class GameScreen extends StatelessWidget {
                     doctors: state.doctors,
                     subordinates: state.subordinates,
                     plague: state.plague,
+                    missions: StaticGameData.missions,
                   ),
                 ),
 

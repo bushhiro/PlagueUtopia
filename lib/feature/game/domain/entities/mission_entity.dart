@@ -13,6 +13,7 @@ class MissionEntity {
   final Map<int, ResourceType> resourceCost; // ресурс для выполнения для каждого врача (key = doctorId)
   final bool hasAdditionalCondition;   // есть ли дополнительное условие
   bool isCompleted;
+  final bool isDrawn;
 
   MissionEntity({
     required this.id,
@@ -20,6 +21,7 @@ class MissionEntity {
     required this.effectType,
     required this.resourceCost,
     this.hasAdditionalCondition = false,
-    this.isCompleted = false
+    this.isCompleted = false,
+    this.isDrawn = true
   });
 }
