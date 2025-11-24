@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mor_utopia/feature/game/data/datasources/static_game_data.dart';
+import '../../domain/entities/doctor_entity.dart';
+import '../../domain/entities/subordinate_entity.dart';
 import '../blocs/game_bloc/game_bloc.dart';
 import '../blocs/game_bloc/game_event.dart';
 import '../blocs/game_bloc/game_state.dart';
+import '../widgets/game_control_panel.dart';
 import '../widgets/game_map_widget.dart';
-// import '../widgets/player_panel_widget.dart';
 
-
-class GameScreen extends StatelessWidget {
+class GameScreen extends StatefulWidget {
   const GameScreen({super.key});
+
+  @override
+  State<GameScreen> createState() => _GameScreenState();
+}
+
+class _GameScreenState extends State<GameScreen> {
+  DoctorEntity? selectedDoctor;
+  SubordinateEntity? selectedSubordinate;
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +27,17 @@ class GameScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.grey.shade200,
         appBar: AppBar(
-          title: const Text('Mor Utopia'),
+          title: const Text('Plague: Utopia'),
           centerTitle: true,
         ),
         body: BlocBuilder<GameBloc, GameState>(
           builder: (context, state) {
-            return Stack(
+
+            return Column(
               children: [
-                /// Основная карта
-                Positioned.fill(
+                /// Карта с миссиями
+                Expanded(
+                  flex: 3,
                   child: GameMapWidget(
                     doctors: state.doctors,
                     subordinates: state.subordinates,
@@ -35,11 +46,11 @@ class GameScreen extends StatelessWidget {
                   ),
                 ),
 
-                /// Нижняя панель с игроками
-                // Align(
-                //   alignment: Alignment.bottomCenter,
-                //   child: PlayerPanelWidget(players: state.players),
-                // ),
+                /// Нижняя панель управления ходом
+                Expanded(
+                  flex: 1,
+                  child: const GameControlPanel(),
+                ),
               ],
             );
           },

@@ -8,11 +8,13 @@ class PlayerModel {
   final int victoryPoints;
   final DoctorModel? doctor;
   final PlagueModel? plague;
+  final PlayerColor color;
 
   PlayerModel({
     required this.id,
     required this.isPlague,
     required this.victoryPoints,
+    required this.color,
     this.doctor,
     this.plague,
   });
@@ -25,6 +27,7 @@ class PlayerModel {
       victoryPoints: entity.victoryPoints,
       doctor: entity.doctor != null ? DoctorModel.fromEntity(entity.doctor!) : null,
       plague: entity.plague != null ? PlagueModel.fromEntity(entity.plague!) : null,
+      color: entity.color,
     );
   }
 
@@ -33,6 +36,7 @@ class PlayerModel {
     return PlayerEntity(
       id: id,
       isPlague: isPlague,
+      color: color,
       victoryPoints: victoryPoints,
       doctor: doctor?.toEntity(),
       plague: plague?.toEntity(),

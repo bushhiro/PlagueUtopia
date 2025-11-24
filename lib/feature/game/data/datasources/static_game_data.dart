@@ -14,7 +14,7 @@ import '../models/mission_model.dart';
 class StaticGameData {
 
   static final LocationEntity dummyLocation = LocationEntity(
-    id: 0,
+    id: 99,
     adjacentLocations: [],
     canCrossRiver: false
   );
@@ -38,6 +38,56 @@ class StaticGameData {
     LocationEntity(
       id: 4,
       adjacentLocations: [2],
+    ),
+    LocationEntity(
+      id: 5,
+      adjacentLocations: [2, 3],
+      canCrossRiver: false,
+    ),
+    LocationEntity(
+      id: 6,
+      adjacentLocations: [1, 4],
+      canCrossRiver: true,
+    ),
+    LocationEntity(
+      id: 7,
+      adjacentLocations: [1],
+    ),
+    LocationEntity(
+      id: 8,
+      adjacentLocations: [2],
+    ),
+    LocationEntity(
+      id: 9,
+      adjacentLocations: [2, 3],
+      canCrossRiver: false,
+    ),
+    LocationEntity(
+      id: 10,
+      adjacentLocations: [1, 4],
+      canCrossRiver: true,
+    ),
+    LocationEntity(
+      id: 11,
+      adjacentLocations: [1],
+    ),
+    LocationEntity(
+      id: 12,
+      adjacentLocations: [2],
+    ),
+    LocationEntity(
+      id: 13,
+      adjacentLocations: [2, 3],
+      canCrossRiver: false,
+    ),
+    LocationEntity(
+      id: 14,
+      adjacentLocations: [1, 4],
+      canCrossRiver: true,
+    ),
+    LocationEntity(
+      id: 15,
+      adjacentLocations: [1],
     ),
   ];
 
@@ -150,6 +200,13 @@ class StaticGameData {
     position: dummyLocation,
     targets: [],
   );
+
+  static final List<PlayerEntity> players = [
+    PlayerEntity(id: 0, isPlague: true, color: PlayerColor.black, plague: plague),
+    PlayerEntity(id: 1, isPlague: false, color: PlayerColor.blue, doctor: doctors[0]),
+    PlayerEntity(id: 2, isPlague: false, color: PlayerColor.red, doctor: doctors[1]),
+    PlayerEntity(id: 3, isPlague: false, color: PlayerColor.yellow, doctor: doctors[2]),
+  ];
 
   // === МИССИИ ===
   static final List<MissionModel> missions = [
